@@ -105,7 +105,7 @@
 
         let timer = setInterval(randomHole,1000);
         let score = 0;
-        let timeLeft =0;
+        let timeLeft = 30;
 
         // Add event listener to the start button        
 
@@ -131,6 +131,7 @@
             //      hint: you need to then find all "mole holes" and randomly choose one from the list.           
             // 3. Show the mole in the new hole.
             let holeLoc = document.getElementById("hole" + rand);
+            timeLeft--;
 
             // 4. Add a click event listener to the mole to handle "whacking".
             holeLoc.addEventListener("click", () => {
@@ -138,7 +139,7 @@
                 score++;
             });
 
-            document.getElementById("time").textContent = timer.valueOf();
+            document.getElementById("score-board").textContent = timeLeft;
 
         }
 
