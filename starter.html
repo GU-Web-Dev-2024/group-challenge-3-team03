@@ -103,16 +103,19 @@
         // Example:
         // const startButton = document.getElementById('startButton');
 
-        let timer = setInterval(randomHole,1000);
+        let timer; 
         let score = 0;
         let timeLeft = 30;
 
+        startGame();
         // Add event listener to the start button        
 
         // TODO: start game logic
         function startGame() {
             document.getElementById("startButton").addEventListener("click", () => {
-                timer.start();
+                timer = setInterval(randomHole,1000);
+                
+
             });
             // Algorithm:
             // 1. Reset game variables: score starts at 0, timer starts at max, mole visibility, etc.          
@@ -139,7 +142,7 @@
                 score++;
             });
 
-            document.getElementById("score-board").textContent = timeLeft;
+            document.getElementById("timer").textContent = "Time Left: " + timeLeft;
 
         }
 
