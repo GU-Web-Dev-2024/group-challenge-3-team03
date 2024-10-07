@@ -169,11 +169,18 @@
         // TODO: end game logic function
         function endGame() {
             // Algorithm:
-            // 1. Stop the mole movement and countdown timers using clearInterval().            
-            // 2. Hide any remaining mole on the grid.            /
-            // 3. Display an alert or message showing the final score.            
-            // 4. Reset the game to allow playing again.
+            // 1. Stop the mole movement and countdown timers using clearInterval().
             clearInterval(timer);
+            // 2. Hide any remaining mole on the grid.
+            for (let x = 1; x <= 6; x++) {
+                let holeLoc = document.getElementById("hole" + x);
+                holeLoc.style.backgroundColor = "lightgray";
+            }
+            // 3. Display an alert or message showing the final score.
+            alert("Final score: " + score);
+            // 4. Reset the game to allow playing again.
+            score = 0;
+            timeLeft = 30;
         }
 
         function  getRandomNum() {
