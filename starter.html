@@ -136,7 +136,7 @@
 
             //      hint: you need to then find all "mole holes" and randomly choose one from the list.           
             // 3. Show the mole in the new hole.
-            let holeLoc = document.getElementById("hole" + rand);
+            let mole = document.getElementById("hole" + rand);
             //decrease
             timeLeft--;
 
@@ -173,6 +173,7 @@
             // 2. Hide any remaining mole on the grid.            /
             // 3. Display an alert or message showing the final score.            
             // 4. Reset the game to allow playing again.
+            clearInterval(timer);
         }
 
         function  getRandomNum() {
