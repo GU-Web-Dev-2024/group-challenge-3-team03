@@ -129,12 +129,18 @@
         function randomHole() {
             // Algorithm:
             // 1. Hide the mole in the previous hole (if any).
-            let rand = getRandomNum()
             // 2. Generate a random index to select a new hole.
+            let rand = getRandomNum()
+
+
+
             //      hint: you need to then find all "mole holes" and randomly choose one from the list.           
             // 3. Show the mole in the new hole.
             let holeLoc = document.getElementById("hole" + rand);
+            //decrease
             timeLeft--;
+
+            holeLoc.style.backgroundColor = "red";
 
             // 4. Add a click event listener to the mole to handle "whacking".
             holeLoc.addEventListener("click", () => {
@@ -150,9 +156,14 @@
         function whack() {
             // Algorithm:
             // 0. if the mole is visible...
-            // 1. Increase the score.           
-            // 2. Update the score display in the HTML.           
-            // 3. Hide the mole after it's whacked.            
+            if (this.style.backgroundColor !== "lightgray") {
+                // 1. Increase the score.
+                score++;
+                // 2. Update the score display in the HTML.
+                document.getElementById("score-board").textContent = score;
+                // 3. Hide the mole after it's whacked.
+                this.style.backgroundColor = "lightgray";
+            }
         }
 
         // TODO: end game logic function
